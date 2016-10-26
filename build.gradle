@@ -1,0 +1,70 @@
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+}
+
+plugins {
+    id "java"
+    id "eclipse"
+    id "application"
+}
+
+
+task printClasspath {
+    doLast {
+        configurations.testRuntime.each { println it }
+    }
+}
+
+archivesBaseName = "chaincode"
+mainClassName="com.ibm.JavaCDD"
+
+run {
+    if (project.hasProperty("appArgs")) {
+        args = Eval.me(appArgs)
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+
+jar.doFirst {
+    destinationDir=file("${buildDir}")
+    manifest {
+        attributes (
+        'Main-Class': mainClassName,
+        'Class-Path': configurations.runtime.collect { "libs/"+"$it.name" }.join(' ')
+        )
+    }
+}
+
+task copyToLib(type: Copy) {
+    into "$buildDir/libs"
+    from configurations.runtime
+}
+build.finalizedBy(copyToLib)
+
+
+dependencies {
+    compile 'io.grpc:grpc-all:0.13.2'
+    compile 'commons-cli:commons-cli:1.3.1'
+    compile 'org.hyperledger:shim-client:1.0'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.3'
+    testCompile 'org.mockito:mockito-core:2.1.0'
+    testCompile 'junit:junit:4.12'
+        }
