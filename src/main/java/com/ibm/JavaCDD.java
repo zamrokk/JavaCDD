@@ -22,6 +22,7 @@ import org.hyperledger.java.shim.ChaincodeStub;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.api.client.util.StringUtils;
 
 /**
  * <h1>Chaincode using external weather API to trigger cooling degrees days
@@ -31,9 +32,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  *
  */
 public class JavaCDD extends ChaincodeBase {
-	
+
 	private static Log log = LogFactory.getLog(JavaCDD.class);
-	
+
 	@Override
 	/**
 	 * Entry point of invocation interaction
@@ -43,7 +44,9 @@ public class JavaCDD extends ChaincodeBase {
 	 * @param args
 	 */
 	public String run(ChaincodeStub stub, String function, String[] args) {
-		log.info("In run, function:" + function);
+		
+		log.info("Calling invocation chaincode with function :" + function + " and args :"
+				+ org.apache.commons.lang3.StringUtils.join(args, ","));
 
 		switch (function) {
 		case "init":
@@ -73,11 +76,9 @@ public class JavaCDD extends ChaincodeBase {
 	 * @return true if contract has been executed, false otherwise
 	 */
 	public String executeContract(ChaincodeStub stub, String[] args) {
-		
+
 		Boolean contractExecuted = false;
-		
-		log.info("in executeContract");
-		
+
 		if (args.length != 3) {
 			String errorMessage = "{\"Error\":\"Incorrect number of arguments. Expecting 3: client name, postal Code, country Code\"}";
 			log.error(errorMessage);
@@ -148,7 +149,7 @@ public class JavaCDD extends ChaincodeBase {
 					stub.putState(contractRecord.clientName, contractRecord.toString());
 					log.info("Contract condition valid " + weatherObservationResponse.getObservation().getTemp() + " < "
 							+ contractRecord.temperatureThreshold);
-					contractExecuted=true;
+					contractExecuted = true;
 				} else {
 					log.info("Contract condition invalid " + weatherObservationResponse.getObservation().getTemp()
 							+ " > " + contractRecord.temperatureThreshold);
@@ -177,6 +178,7 @@ public class JavaCDD extends ChaincodeBase {
 
 	/**
 	 * This function initializes the contract
+	 * 
 	 * @param stub
 	 * @param function
 	 * @param args
@@ -185,6 +187,7 @@ public class JavaCDD extends ChaincodeBase {
 	 * @return
 	 */
 	public String init(ChaincodeStub stub, String function, String[] args) {
+		
 		if (args.length != 3) {
 			return "{\"Error\":\"Incorrect number of arguments. Expecting 3 : client name, temperature threshold, amount received when contract is activated \"}";
 		}
@@ -200,6 +203,7 @@ public class JavaCDD extends ChaincodeBase {
 
 	/**
 	 * This function can query the current State of the contract
+	 * 
 	 * @param stub
 	 * @param function
 	 * @param args
@@ -208,12 +212,14 @@ public class JavaCDD extends ChaincodeBase {
 	 */
 	@Override
 	public String query(ChaincodeStub stub, String function, String[] args) {
+		
+		log.info("Calling query chaincode with function :" + function + " and args :"
+				+ org.apache.commons.lang3.StringUtils.join(args, ","));
+		
 		if (args.length != 1) {
 			return "{\"Error\":\"Incorrect number of arguments. Expecting name of the client to query\"}";
 		}
 		String clientName = stub.getState(args[0]);
-
-		log.info("Called " + function + " on client : " + clientName);
 
 		if (clientName != null && !clientName.isEmpty()) {
 			try {
