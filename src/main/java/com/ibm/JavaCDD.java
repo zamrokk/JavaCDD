@@ -46,6 +46,8 @@ public class JavaCDD extends ChaincodeBase {
 		
 		log.info("Calling invocation chaincode with function :" + function + " and args :"
 				+ org.apache.commons.lang3.StringUtils.join(args, ","));
+		
+		log.info("Coming from CallerCertificate :" + stub.getCallerCertificate());
 
 		switch (function) {
 		case "init":
@@ -215,12 +217,12 @@ public class JavaCDD extends ChaincodeBase {
 		log.info("Calling query chaincode with function :" + function + " and args :"
 				+ org.apache.commons.lang3.StringUtils.join(args, ","));
 		
-		if (args.length != 1) {
-			return "{\"Error\":\"Incorrect number of arguments. Expecting name of the client to query\"}";
-		}
-		
+		log.info("Coming from CallerCertificate :" + stub.getCallerCertificate());
 
 		
+		if (args.length != 1) {
+			return "{\"Error\":\"Incorrect number of arguments. Expecting name of the client to query\"}";
+		}		
 		
 		String clientName = stub.getState(args[0]);
 
