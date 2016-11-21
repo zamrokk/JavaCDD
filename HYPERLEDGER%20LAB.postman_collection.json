@@ -35,7 +35,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n      \"jsonrpc\": \"2.0\",\n      \"method\": \"deploy\",\n      \"params\": {\n          \"type\": 4,\n          \"chaincodeID\": {\n              \"path\": \"https://github.com/zamrokk/JavaCDD\"\n          },\n          \"ctorMsg\": {\n              \"args\": [\"init\",\"farmer\",\"10\", \"42\"]\n          }\n      },\n      \"id\": 1\n  }"
+					"raw": "{\n      \"jsonrpc\": \"2.0\",\n      \"method\": \"deploy\",\n      \"params\": {\n          \"type\": 4,\n          \"chaincodeID\": {\n              \"path\": \"http://github.com/zamrokk/JavaCDD\"\n          },\n          \"ctorMsg\": {\n              \"args\": [\"init\",\"farmer\",\"10\", \"42\"]\n          }\n      },\n      \"id\": 1\n  }"
 				},
 				"description": ""
 			},
@@ -55,7 +55,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n      \"jsonrpc\": \"2.0\",\n      \"method\": \"query\",\n      \"params\": {\n          \"type\": 1,\n          \"chaincodeID\": {\n              \"name\": \"011d5fbef1eae044fd6e606cd064d758a31511e6a786a8c89e90cfdf3fdd651ba41445983be648380e360032ab4f651ad589617de570aa9959af4c6f2f71e996\"\n          },\n          \"ctorMsg\": {\n              \"args\":[\"query\",\"farmer\"]\n          }\n       },\n      \"id\": 2\n  }"
+					"raw": "{\n      \"jsonrpc\": \"2.0\",\n      \"method\": \"query\",\n      \"params\": {\n          \"type\": 1,\n          \"chaincodeID\": {\n              \"name\": \"a6d163c838e0a8400dc0f60402372cc602753c5bda80ecdd202bcdb2f11a3e4ae14658f053cc14845c28d6052f0b0264909d5248862e30ca19fc77f855eda69a\"\n          },\n          \"ctorMsg\": {\n              \"args\":[\"query\",\"farmer\"]\n          }\n       },\n      \"id\": 2\n  }"
 				},
 				"description": ""
 			},
