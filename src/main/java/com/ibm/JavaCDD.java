@@ -17,11 +17,12 @@ import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.AbstractHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
-import org.hyperledger.fabric.sdk.shim.ChaincodeBase;
-import org.hyperledger.fabric.sdk.shim.ChaincodeStub;
+import org.hyperledger.java.shim.ChaincodeBase;
+import org.hyperledger.java.shim.ChaincodeStub;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.api.client.util.StringUtils;
 
 /**
  * <h1>Chaincode using external weather API to trigger cooling degrees days
@@ -46,8 +47,6 @@ public class JavaCDD extends ChaincodeBase {
 		
 		log.info("Calling invocation chaincode with function :" + function + " and args :"
 				+ org.apache.commons.lang3.StringUtils.join(args, ","));
-		
-		log.info("Coming from CallerCertificate :" + stub.getCallerCertificate());
 
 		switch (function) {
 		case "init":
@@ -217,13 +216,9 @@ public class JavaCDD extends ChaincodeBase {
 		log.info("Calling query chaincode with function :" + function + " and args :"
 				+ org.apache.commons.lang3.StringUtils.join(args, ","));
 		
-		log.info("Coming from CallerCertificate :" + stub.getCallerCertificate());
-
-		
 		if (args.length != 1) {
 			return "{\"Error\":\"Incorrect number of arguments. Expecting name of the client to query\"}";
-		}		
-		
+		}
 		String clientName = stub.getState(args[0]);
 
 		if (clientName != null && !clientName.isEmpty()) {

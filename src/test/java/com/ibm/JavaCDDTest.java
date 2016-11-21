@@ -4,7 +4,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import org.hyperledger.fabric.sdk.shim.ChaincodeStub;
+import org.hyperledger.java.shim.ChaincodeStub;
 
 import junit.framework.TestCase;
 
