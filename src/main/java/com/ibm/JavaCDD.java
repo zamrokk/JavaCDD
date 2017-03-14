@@ -17,12 +17,11 @@ import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.AbstractHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
-import org.hyperledger.java.shim.ChaincodeBase;
-import org.hyperledger.java.shim.ChaincodeStub;
+import org.hyperledger.fabric.sdk.shim.ChaincodeBase;
+import org.hyperledger.fabric.sdk.shim.ChaincodeStub;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.api.client.util.StringUtils;
 
 /**
  * <h1>Chaincode using external weather API to trigger cooling degrees days

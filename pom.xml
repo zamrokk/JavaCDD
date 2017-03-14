@@ -65,11 +65,13 @@
      <artifactId>commons-cli</artifactId>
      <version>1.3.1</version>
   </dependency>
-  <dependency>
-    <groupId>org.hyperledger</groupId>
-    <artifactId>shim-client</artifactId>
-    <version>1.0</version>
-  </dependency>
+  <!-- https://mvnrepository.com/artifact/org.hyperledger.fabric-sdk-java/fabric-sdk-java -->
+<dependency>
+    <groupId>org.hyperledger.fabric-sdk-java</groupId>
+    <artifactId>fabric-sdk-java</artifactId>
+    <version>0.6</version>
+</dependency>
+  
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
