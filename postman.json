@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "HYPERLEDGER LAB",
-		"_postman_id": "68447dff-772a-2631-12ef-bedb492e7739",
+		"_postman_id": "86534f68-ee0c-43e5-6997-3858de7bc2f4",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -10,13 +10,10 @@
 		{
 			"name": "CHAIN V0.6",
 			"request": {
-				"url": "http://92.103.147.82:7050/chain",
+				"url": "http://localhost:7050/chain",
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
+				"body": {},
 				"description": ""
 			},
 			"response": []
@@ -24,7 +21,7 @@
 		{
 			"name": "DEPLOY V0.6",
 			"request": {
-				"url": "http://92.103.147.82:7050/chaincode",
+				"url": "http://localhost:7050/chaincode",
 				"method": "POST",
 				"header": [
 					{
@@ -44,7 +41,7 @@
 		{
 			"name": "QUERY V0.6",
 			"request": {
-				"url": "http://92.103.147.82:7050/chaincode",
+				"url": "http://localhost:7050/chaincode",
 				"method": "POST",
 				"header": [
 					{
@@ -64,7 +61,7 @@
 		{
 			"name": "INVOKE V0.6",
 			"request": {
-				"url": "http://92.103.147.82:7050/chaincode",
+				"url": "http://localhost:7050/chaincode",
 				"method": "POST",
 				"header": [
 					{
