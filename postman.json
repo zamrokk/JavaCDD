@@ -52,7 +52,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n      \"jsonrpc\": \"2.0\",\n      \"method\": \"query\",\n      \"params\": {\n          \"type\": 1,\n          \"chaincodeID\": {\n              \"name\": \"45df952046c231a1e2618ade6e3f55f13a3b5bbda39acf7354ce0059dffece439aeca48397b4957cbb5c8698cbc62d0a2f43e45d4d98452d4f0ebf1d797c2586\"\n          },\n          \"ctorMsg\": {\n              \"args\":[\"query\",\"farmer\"]\n          }\n       },\n      \"id\": 2\n  }"
+					"raw": "{\n      \"jsonrpc\": \"2.0\",\n      \"method\": \"query\",\n      \"params\": {\n          \"type\": 1,\n          \"chaincodeID\": {\n              \"name\": \"c26e67892e532a7c25ef4431719e66652fd9eb33f824634c875c8cdd80453199\"\n          },\n          \"ctorMsg\": {\n              \"args\":[\"query\",\"farmer\"]\n          }\n       },\n      \"id\": 2\n  }"
 				},
 				"description": ""
 			},
@@ -74,6 +74,39 @@
 					"mode": "raw",
 					"raw": "{\n      \"jsonrpc\": \"2.0\",\n      \"method\": \"invoke\",\n      \"params\": {\n          \"type\": 1,\n          \"chaincodeID\": {\n              \"name\": \"45df952046c231a1e2618ade6e3f55f13a3b5bbda39acf7354ce0059dffece439aeca48397b4957cbb5c8698cbc62d0a2f43e45d4d98452d4f0ebf1d797c2586\"\n          },\n          \"ctorMsg\": {\n              \"args\":[\"executeContract\",\"farmer\",\"99701\", \"US\"]\n          }\n      },\n      \"id\": 2\n  }"
 				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "QUERY CLIENT API 0.6",
+			"request": {
+				"url": "http://localhost:8080/query?clientName=farmer",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "CHAIN CLIENT V0.6",
+			"request": {
+				"url": "http://localhost:8080/chain",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "INVOKE CLIENT V0.6",
+			"request": {
+				"url": "http://localhost:8080/executeContract?clientName=farmer&postalCode=99701&countryCode=US",
+				"method": "GET",
+				"header": [],
+				"body": {},
 				"description": ""
 			},
 			"response": []
