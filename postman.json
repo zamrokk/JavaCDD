@@ -90,17 +90,6 @@
 			"response": []
 		},
 		{
-			"name": "CHAIN CLIENT V0.6",
-			"request": {
-				"url": "http://localhost:8080/chain",
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": ""
-			},
-			"response": []
-		},
-		{
 			"name": "INVOKE CLIENT V0.6",
 			"request": {
 				"url": "http://localhost:8080/executeContract?clientName=farmer&postalCode=99701&countryCode=US",
