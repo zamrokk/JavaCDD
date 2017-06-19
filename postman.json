@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "HYPERLEDGER LAB",
-		"_postman_id": "86534f68-ee0c-43e5-6997-3858de7bc2f4",
+		"_postman_id": "3d82b481-d4d0-0b7c-122e-74e655c9d271",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -13,7 +13,10 @@
 				"url": "http://localhost:7050/chain",
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -32,7 +35,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n      \"jsonrpc\": \"2.0\",\n      \"method\": \"deploy\",\n      \"params\": {\n          \"type\": 4,\n          \"chaincodeID\": {\n              \"path\": \"/chaincode/JavaCDD\"\n          },\n          \"ctorMsg\": {\n              \"args\": [\"init\",\"farmer\",\"10\", \"42\"]\n          }\n      },\n      \"id\": 1\n  }"
+					"raw": "{\n      \"jsonrpc\": \"2.0\",\n      \"method\": \"deploy\",\n      \"params\": {\n          \"type\": 4,\n          \"chaincodeID\": {\n              \"path\": \"/chaincode/JavaCDD\"\n          },\n          \"ctorMsg\": {\n              \"args\": [\"init\",\"farmer\",\"20\", \"42\"]\n          }\n      },\n      \"id\": 1\n  }"
 				},
 				"description": ""
 			},
@@ -72,7 +75,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n      \"jsonrpc\": \"2.0\",\n      \"method\": \"invoke\",\n      \"params\": {\n          \"type\": 1,\n          \"chaincodeID\": {\n              \"name\": \"45df952046c231a1e2618ade6e3f55f13a3b5bbda39acf7354ce0059dffece439aeca48397b4957cbb5c8698cbc62d0a2f43e45d4d98452d4f0ebf1d797c2586\"\n          },\n          \"ctorMsg\": {\n              \"args\":[\"executeContract\",\"farmer\",\"99701\", \"US\"]\n          }\n      },\n      \"id\": 2\n  }"
+					"raw": "{\n      \"jsonrpc\": \"2.0\",\n      \"method\": \"invoke\",\n      \"params\": {\n          \"type\": 1,\n          \"chaincodeID\": {\n              \"name\": \"45df952046c231a1e2618ade6e3f55f13a3b5bbda39acf7354ce0059dffece439aeca48397b4957cbb5c8698cbc62d0a2f43e45d4d98452d4f0ebf1d797c2586\"\n          },\n          \"ctorMsg\": {\n              \"args\":[\"executeContract\",\"farmer\",\"64.8378\", \"-147.7164\"]\n          }\n      },\n      \"id\": 2\n  }"
 				},
 				"description": ""
 			},
@@ -84,7 +87,10 @@
 				"url": "http://localhost:8080/query?clientName=farmer",
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"description": ""
 			},
 			"response": []
@@ -92,10 +98,13 @@
 		{
 			"name": "INVOKE CLIENT V0.6",
 			"request": {
-				"url": "http://localhost:8080/executeContract?clientName=farmer&postalCode=99701&countryCode=US",
+				"url": "http://localhost:8080/executeContract?clientName=farmer&lon=64.8378&lat=-147.7164",
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
 				"description": ""
 			},
 			"response": []

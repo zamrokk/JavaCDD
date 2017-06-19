@@ -19,15 +19,15 @@ public class JavaCDDTest extends TestCase {
 
 		JavaCDD javaCDD = new JavaCDD();
 
-		String[] args = new String[] { "farmer", "06600", "FR" };
+		String[] args = new String[] { "farmer", "43.7102", "7.2620" };
 		String result = javaCDD.executeContract(stub, args);
 		
 		assertFalse(Boolean.parseBoolean(result));
 
 	}
 
-	public void testFairbanks() { // never goes over 40 normally, it will be executed
-
+	public void testAlaska() { // never goes over 40 normally, it will be executed
+		
 		// mocks
 		ChaincodeStub stub = mock(ChaincodeStub.class);
 		when(stub.getState(any())).thenReturn(
@@ -35,7 +35,7 @@ public class JavaCDDTest extends TestCase {
 
 		JavaCDD javaCDD = new JavaCDD();
 
-		String[] args = new String[] { "farmer", "99701", "US" };
+		String[] args = new String[] { "farmer", "64.8378", "-147.7164" };
 		String result = javaCDD.executeContract(stub, args);
 		
 		assertTrue(Boolean.parseBoolean(result));
