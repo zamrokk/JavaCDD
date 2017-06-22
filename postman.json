@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "HYPERLEDGER LAB",
-		"_postman_id": "3d82b481-d4d0-0b7c-122e-74e655c9d271",
+		"_postman_id": "86534f68-ee0c-43e5-6997-3858de7bc2f4",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -13,10 +13,7 @@
 				"url": "http://localhost:7050/chain",
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
+				"body": {},
 				"description": ""
 			},
 			"response": []
@@ -35,7 +32,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n      \"jsonrpc\": \"2.0\",\n      \"method\": \"deploy\",\n      \"params\": {\n          \"type\": 4,\n          \"chaincodeID\": {\n              \"path\": \"/chaincode/JavaCDD\"\n          },\n          \"ctorMsg\": {\n              \"args\": [\"init\",\"farmer\",\"20\", \"42\"]\n          }\n      },\n      \"id\": 1\n  }"
+					"raw": "{\n      \"jsonrpc\": \"2.0\",\n      \"method\": \"deploy\",\n      \"params\": {\n          \"type\": 4,\n          \"chaincodeID\": {\n              \"path\": \"/chaincode/JavaCDD\"\n          },\n          \"ctorMsg\": {\n              \"args\": [\"init\",\"farmer\",\"10\", \"42\"]\n          }\n      },\n      \"id\": 1\n  }"
 				},
 				"description": ""
 			},
@@ -87,10 +84,7 @@
 				"url": "http://localhost:8080/query?clientName=farmer",
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
+				"body": {},
 				"description": ""
 			},
 			"response": []
@@ -98,13 +92,41 @@
 		{
 			"name": "INVOKE CLIENT V0.6",
 			"request": {
-				"url": "http://localhost:8080/executeContract?clientName=farmer&lon=64.8378&lat=-147.7164",
+				"url": {
+					"raw": "http://localhost:8080/executeContract?clientName=farmer&lon=64.8378&lat=-147.7164",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"executeContract"
+					],
+					"query": [
+						{
+							"key": "clientName",
+							"value": "farmer",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "lon",
+							"value": "64.8378",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "lat",
+							"value": "-147.7164",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
+				"body": {},
 				"description": ""
 			},
 			"response": []
